@@ -1,0 +1,54 @@
+name: Checks
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  install-dependencies:
+    name: "Install dependencies"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.2.0'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+  app-check:
+    name: "App check (ts & eslint)"
+    needs: install-dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.2.0'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+#      - name: "App: check TS and lint"
+##        run: |
+##          pnpm run --filter @docossum/platform check:ts
+##          pnpm run --filter @docossum/platform check:lint
