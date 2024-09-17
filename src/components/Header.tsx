@@ -1,6 +1,6 @@
 import Buttons from './Button'
 
-const Header = () => {
+export const Header = () => {
 	return (
 		<div className="flex flex-row items-center justify-between w-full h-14 px-8">
 			<div className="flex flex-row items-center">
@@ -25,5 +25,3 @@ const Header = () => {
 		</div>
 	)
 }
-
-export default Header

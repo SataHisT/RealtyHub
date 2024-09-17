@@ -1,20 +1,19 @@
-import Header from '@/components/Header'
-import { Footer } from '@/components/Footer'
+import type { Metadata } from 'next'
 import './globals.css'
 
-export const metadata = {
+export const metadata: Metadata = {
 	title: 'Арендная система',
 	description: 'Аренда и продажа недвижимости'
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+	children
+}: Readonly<{
+	children: React.ReactNode
+}>) {
 	return (
-		<html lang="ru">
-			<body className="flex flex-col min-h-screen">
-				<Header />
-				<main className="flex-grow">{children}</main>
-				<Footer />
-			</body>
+		<html lang="en">
+			<body>{children}</body>
 		</html>
 	)
 }

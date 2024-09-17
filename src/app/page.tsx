@@ -1,9 +1,10 @@
-import Layout from '@/app/layout'
+import RootLayout from '@/app/layout'
+import { Header } from '@/components/Header'
 
 export default function Home() {
 	return (
-		<Layout>
-			<div>добро пожаловать!</div>
-		</Layout>
+		<RootLayout>
+			<Header />
+		</RootLayout>
 	)
 }
